@@ -249,6 +249,28 @@ DIV
 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum praesentium reiciendis nisi ut nesciunt harum quod perspiciatis possimus modi laborum?
 </div>
 
+<h3>ID in CSS</h3>
+<h1 id="id1" id="id1">This is Green color</h1>
+<button onclick="ch()" title="change the above text to red color">Red Color</button>
+<button onclick="ch1()" title="change the above text to black color">Black Color</button>
+<hr>
+<h3>iFrame</h3>
+<iframe src="index.html" width="500px" height="500px" frameborder="1"></iframe>
+<hr>
+<h3>JavaScript</h3>
+<h2>Open the Console to see the JS in HTML</h2>
+<script>
+    console.log('Hello World!');
+    console.log("5 + 5 is",5+5);
+    function ch(){
+    const col = document.getElementById('id1');
+    col.style.color = "red";
+    }
+    function ch1(){
+    const col = document.getElementById('id1');
+    col.style.color = "black";
+    }
+</script>
 
 </body>
 </html>
