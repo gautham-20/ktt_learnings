@@ -296,7 +296,7 @@
     </svg>
     <hr>
     <h3>HTML Media</h3>
-    <video width="480" height="480" controls autoplay loop muted>
+    <video width="480" height="480" autoplay loop muted>
         <source src="youtube-video.mp4" type="video/mp4">
     </video>
     <hr>
@@ -305,11 +305,49 @@
         <source src="fahhh.mp3" type="audio/mp3">
     </Audio>
     <h3>HTML Plugin</h3>
-    <h4>Embedded</h4>
+    <h4>Object</h4>
     <object data="html book.pdf" type="application/pdf" width="800" height="1100">
         <p>Sorry, your browser cannot display this PDF.</p>
     </object>
-    
+    <hr>
+    <h4>Embedded</h4>
+    <embed src="html book.pdf" type="application/pdf" width="800" height="1100">
+    <hr>
+ <h3>Geolocation</h3>
+
+<button onclick="getLat()">Latitude</button>
+<p id="getLat"></p>
+
+<button onclick="getLon()">Longitude</button>
+<p id="getLon"></p>
+<hr>
+
+<script>
+
+    var Latitude1 = document.getElementById("getLat");
+    var Longitude1 = document.getElementById("getLon");
+
+    function getLat() {
+        navigator.geolocation.getCurrentPosition(showLat);
+        navigator.userAgent
+    }
+
+    function showLat(posLat) {
+        Latitude1.innerHTML = "Latitude: " + posLat.coords.latitude;
+    }
+
+    function getLon() {
+        navigator.geolocation.getCurrentPosition(showLon);
+    }
+
+    function showLon(posLon) {
+        Longitude1.innerHTML = "Longitude: " + posLon.coords.longitude;
+    }
+
+   
+</script>
+
 </body>
+
 
 </html>
