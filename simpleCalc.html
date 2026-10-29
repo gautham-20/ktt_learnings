@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+
+<body>
+    <input type="button" value="Greetings" onclick="greet()">
+    <br> <br>
+    <input type="button" value="Simple Calculator" onclick="calc()">
+    <br> <br>
+    <input type="button" value="Password Strength Checker" onclick="passwordStrengthChecker()">
+    <br> <br>
+    <input type="button" value="Arrow Function" onclick="alert(sum(1, 7))">
+</body>
+<script>
+
+    function greet() {
+        let userName = prompt("Enter your Name");
+        alert("Welcome, " + userName + "!");
+    }
+    
+
+    let sum = (a,b)=>(a + b);
+
+
+    function passwordStrengthChecker() {
+        const passWord = prompt("Enter your password");
+        const specialChar = "!@#$%^&*";
+        const numCheck = "1234567890"
+        var spc = false;
+        var numCheck1 = false;
+        for (let i = 0; i < passWord.length; i++) {
+            if (specialChar.includes(passWord[i])) {
+                spc = true;
+            }
+
+            if (numCheck.includes(passWord[i])) {
+                numCheck1 = true;
+            }
+        }
+        if (passWord.length >= 8 && spc == true && numCheck1 == true) {
+            alert("Strong Password");
+        }
+        else {
+            alert('Weak Password');
+        }
+    }
+
+
+    function calc() {
+        while (n != 0) {
+        const num1 = parseInt(prompt("Enter the value for A"));
+        const num2 = parseInt(prompt("Enter the value for B"));
+        const oper = parseInt(prompt("Press\n1. Addition\n2.Subtract\n3.Multiplication\n4.Division"));
+       
+            switch (oper) {
+                case 1:
+                    alert(num1 + num2);
+                    break;
+                case 2:
+                    alert(num1 - num2);
+                    break;
+                case 3:
+                    alert(num1 * num2);
+                    break;
+                case 4:
+                    if (num2 == 0) {
+                        alert("cannot divide by zero!");
+                    } else {
+                        alert(num1 / num2);
+                    }
+                    break;
+                default:
+                    alert("invalid input!");
+            }
+            var n=parseInt(prompt("Press\n0 to stop\n1 to continue"));
+        }
+    }
+
+</script>
+
+</html>
