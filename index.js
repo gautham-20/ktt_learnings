@@ -198,3 +198,8 @@ const objToPrimitive = {
 }
 
 console.log("Hello " + objToPrimitive + "!");
+
+console.log(undefined==null);
+
+let name8 = "cat";
+console.log(typeof name8=="string");
