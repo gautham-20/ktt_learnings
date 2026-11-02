@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Booking</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+
+    <style>
+        body{
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1080' height='720' preserveAspectRatio='none' viewBox='0 0 1080 720'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1030%26quot%3b)' fill='none'%3e%3crect width='1080' height='720' x='0' y='0' fill='url(%26quot%3b%23SvgjsLinearGradient1031%26quot%3b)'%3e%3c/rect%3e%3cpath d='M1080 0L722.37 0L1080 102.91z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M722.37 0L1080 102.91L1080 253.69L660.58 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M660.5799999999999 0L1080 253.69L1080 538.6L250.19999999999993 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M250.20000000000005 0L1080 538.6L1080 638.29L121.85000000000005 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 720L504.52 720L0 596.51z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 596.51L504.52 720L660.23 720L0 537.81z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 537.81L660.23 720L742.13 720L0 337.36999999999995z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 337.37L742.13 720L950.4 720L0 190.98000000000002z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1030'%3e%3crect width='1080' height='720' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='8.33%25' y1='-12.5%25' x2='91.67%25' y2='112.5%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1031'%3e%3cstop stop-color='%230e2a47' offset='0'%3e%3c/stop%3e%3cstop stop-color='%2300459e' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        header {
+            color: green;
+            padding-left: 10px;
+            border-radius: 10px 10px 0px 0px;
+            border-bottom: 5px dashed #E0B44C;
+            /* width: 450px; */
+        }
+
+
+        .container{
+            background-color: #c2616934;
+            padding: 0px 10px 10px 10px;
+            margin-top:10px;
+        }
+
+        .content {
+            color: #ffffff;
+        }
+
+        .form1 {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form1>div {
+            flex: 1;
+        }
+
+        .radio {
+            display: flex;
+            gap: 15px;
+        }
+
+        .container {
+            border: 1px dashed red;
+            border-radius:10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Doctor Booking Form</h1>
+        </header>
+
+        <div class="content">
+
+            <h2>Patient Details</h2>
+
+            <form>
+
+                <div class="form1">
+                    <div>
+                        <label for="fname"> <span class="glyphicon glyphicon-user"></span> First Name</label>
+                        <input type="text" id="fname" class="form-control" placeholder="Enter First Name" required
+                            autofocus>
+                    </div>
+
+                    <div>
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" class="form-control" placeholder="Enter Last Name" required>
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="email">  <span class="glyphicon glyphicon-envelope"></span> Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone"><span class="glyphicon glyphicon-earphone"></span>   Phone Number</label>
+                    <div class="input-group"><span class="input-group-addon">+91</span><input type="tel" id="phone" class="form-control"  placeholder="Enter your Phone Number"
+                        pattern="[0-9]{10}" maxlength="10" required></div>
+                </div>
+
+                <div class="form-group"> <span class="glyphicon glyphicon-calendar"></span>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" class="form-control" required>
+                </div>
+
+                <div class="gen">
+                    <label>Gender</label>
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="gender" value="Male" required>
+                            Male
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="Female">
+                            Female
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="Other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <br>
+
+                <h2>Appointment Details</h2>
+
+                <div class="form-group">
+                    <label for="department">Select Department</label>
+
+                    <select id="department" class="form-control" required>
+                        <option value="">Select Department</option>
+                        <option>General Medicine</option>
+                        <option>Cardiology</option>
+                        <option>Dermatology</option>
+                        <option>Orthopedics</option>
+                        <option>Neurology</option>
+                        <option>Pediatrics</option>
+                        <option>Dental</option>
+                        <option>ENT</option>
+                        <option>Gynecology</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="doctor">Select Doctor</label>
+
+                    <select id="doctor" class="form-control" required>
+                        <option value="">Select Doctor</option>
+                        <option>Dr. Arun - General Physician</option>
+                        <option>Dr. Priya - Cardiologist</option>
+                        <option>Dr. Kumar - Dermatologist</option>
+                        <option>Dr. Divya - Pediatrician</option>
+                        <option>Dr. Ravi - Orthopedic</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Appointment Date</label>
+                    <input type="date" id="date" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Appointment Time</label>
+
+                    <select id="time" class="form-control" required>
+                        <option value="">Select Time Slot</option>
+                        <option>09:00 AM - 10:00 AM</option>
+                        <option>10:00 AM - 11:00 AM</option>
+                        <option>11:00 AM - 12:00 PM</option>
+                        <option>02:00 PM - 03:00 PM</option>
+                        <option>03:00 PM - 04:00 PM</option>
+                        <option>04:00 PM - 05:00 PM</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="visit">Appointment Type</label>
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="visit" value="New Visit" required>
+                            New Visit
+                        </label>
+
+                        <label>
+                            <input type="radio" name="visit" value="Follow-up">
+                            Follow-up
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="symptoms">Symptoms / Health Issues</label>
+                    <textarea id="symptoms" class="form-control" placeholder="Describe your symptoms" rows="3"
+                        required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="history">Previous Medical History</label>
+                    <textarea id="history" class="form-control"
+                        placeholder="Mention previous medical conditions"></textarea>
+                </div>
+
+                <h2>Emergency Contact</h2>
+
+                <div class="form1">
+                    <div>
+                        <label for="emergencyName">Contact Name</label>
+                        <input type="text" id="emergencyName" class="form-control" placeholder="Contact Name" required>
+                    </div>
+
+                    <div>
+                        <label for="emergencyPhone">Phone Number</label>
+                        <input type="tel" id="emergencyPhone" class="form-control" placeholder="Phone Number" required>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label for="address">Communication Address</label>
+                    <textarea id="address" class="form-control" placeholder="Enter your Address" required></textarea>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" required>
+                        I confirm to book the appointment.
+                    </label>
+                </div>
+
+                <br>
+
+                <button type="submit" class="btn btn-primary">
+                    Book Appointment
+                </button>
+
+                <button type="reset" class="btn btn-default">
+                    Reset
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
