@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Tour</title>
+  <link rel="icon" href="globe.svg">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+      <a class="navbar-brand" href="#">World Tour</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#destinations">Tours</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="visaForm.html">Apply Visa</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Our Services
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="visaForm.html">Visa</a></li>
+              <li><a class="dropdown-item" href="#destinations">Tours</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#about">Travel Assistance</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#collapseOne">Who We Are?</a>
+          </li>
+        </ul>
+
+        <form class="d-flex" action="#" method="get">
+          <input class="form-control me-2" type="search" name="search" placeholder="Enter your destination"
+            aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid text-center text-white bg-secondary py-4" id="about">
+    <h1 class="bg-dark rounded p-3">Hi, Welcome to the World Tour!</h1>
+
+    <h2 class="bg-danger rounded p-3">
+      We Simplify Your Travel and Accommodation
+    </h2>
+
+    <h3 class="bg-dark rounded p-3">
+      Discover breathtaking destinations, explore new cultures, and create
+      unforgettable memories. We make your journey easy and stress-free with
+      carefully planned trips, comfortable accommodations, and personalized
+      travel experiences.
+    </h3>
+  </div>
+
+  <div class="container my-4">
+
+    <div id="worldTourCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#worldTourCarousel" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+
+        <button type="button" data-bs-target="#worldTourCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+
+        <button type="button" data-bs-target="#worldTourCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner rounded">
+
+        <div class="carousel-item active">
+          <img src="russia.jpg" class="d-block w-100" alt="Russia" height="450">
+
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+            <h5>Explore Russia</h5>
+            <p>Discover beautiful architecture and landscapes.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="swiss.jpg" class="d-block w-100" alt="Switzerland" height="450">
+
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+            <h5>Discover Switzerland</h5>
+            <p>Experience breathtaking mountains and scenery.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="sa.jpg" class="d-block w-100" alt="South Africa" height="450">
+
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+            <h5>Visit South Africa</h5>
+            <p>Enjoy adventures and natural beauty.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#worldTourCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#worldTourCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="container-fluid bg-light py-4" id="destinations">
+
+    <h2 class="text-center mb-4">Explore Our Destinations</h2>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="japan.jpg" class="card-img-top" alt="Japan" height="220">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Japan</h5>
+            <p class="card-text">Explore Japanese culture, temples, and amazing cities.</p>
+            <a href="visaForm.html" class="btn btn-primary mt-auto">Apply Visa</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="mauritius.jpg" class="card-img-top" alt="Mauritius" height="220">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Mauritius</h5>
+            <p class="card-text">Enjoy tropical beaches and beautiful island scenery.</p>
+            <a href="visaForm.html" class="btn btn-primary mt-auto">Apply Visa</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="usa.webp" class="card-img-top" alt="USA" height="220">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">USA</h5>
+            <p class="card-text">Discover famous landmarks and exciting cities.</p>
+            <a href="visaForm.html" class="btn btn-primary mt-auto">Apply Visa</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="russia.jpg" class="card-img-top" alt="Russia" height="220">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Russia</h5>
+            <p class="card-text">Experience historic landmarks and grand architecture.</p>
+            <a href="visaForm.html" class="btn btn-primary mt-auto">Apply Visa</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="sweden.jpg" class="card-img-top" alt="Sweden" height="220">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Sweden</h5>
+            <p class="card-text">Discover scenic lakes and beautiful Nordic landscapes.</p>
+            <a href="visaForm.html" class="btn btn-primary mt-auto">Apply Visa</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="sa.jpg" class="card-img-top" alt="South Africa" height="220">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">South Africa</h5>
+            <p class="card-text">Discover wildlife, coastlines, and safari adventures.</p>
+            <a href="visaForm.html" class="btn btn-primary mt-auto">Apply Visa</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="kenya.webp" class="card-img-top" alt="Kenya" height="220">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Kenya</h5>
+            <p class="card-text">Experience wildlife safaris and beautiful national parks.</p>
+            <a href="visaForm.html" class="btn btn-primary mt-auto">Apply Visa</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="swiss.jpg" class="card-img-top" alt="Switzerland" height="220">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Switzerland</h5>
+            <p class="card-text">Explore snowy mountains and peaceful alpine villages.</p>
+            <a href="visaForm.html" class="btn btn-primary mt-auto">Apply Visa</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="visa.webp" class="card-img-top" alt="Visa services" height="220">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">80+ Countries</h5>
+            <p class="card-text">Explore more destinations and get help with your travel plans.</p>
+            <a href="visaForm.html" class="btn btn-primary mt-auto">More +</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+            Who we are?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            We are World Tour, your trusted travel assistance partner, dedicated to making every journey simple,
+            comfortable, and memorable. We help travelers explore destinations around the world by providing visa
+            application assistance, travel planning, accommodation arrangements, and personalized support. Our goal is
+            to make your travel experience smooth, convenient, and stress-free.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion" id="accordionExample2">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+          What we do?
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample2">
+        <div class="accordion-body">
+          At World Tour, we provide a range of travel services to make your trip easier and more enjoyable.
+
+Visa Assistance: We guide travelers through visa application procedures, document preparation, and submission requirements.
+Travel Arrangements: We assist with flight bookings, transportation, and itinerary planning based on your travel needs.
+Hotel Accommodation: We help you find suitable hotels and comfortable places to stay during your trip.
+Tour Packages: We offer travel planning support to help you explore popular destinations, attractions, and local experiences.
+Travel Support: We provide guidance on travel documentation, schedules, and other trip-related requirements.
+
+Let us help you plan your next adventure with confidence and convenience.
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="accordion" id="accordionExample3">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+          Contact Us
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse show" data-bs-parent="#accordionExample3">
+        <div class="accordion-body">
+          <h4>Reach us at</h4>
+          <div class="form-group has-success">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your Name" required>
+          </div>
+          <div class="form-group has-success">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your Email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" class="form-control" placeholder="Ask your queries" required></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2026 World Tour. Explore the world with us!</p><br>
+    <h5>Follow us on <img src="ig.png" alt="" width="25px" height="25px"> <img src="fb.png" alt="" width="25px"
+        height="25px"> <img src="twitter.png" alt="" width="25px" height="25px"></h5>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

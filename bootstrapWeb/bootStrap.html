@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootstrap Study Notes</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #243047;
+    line-height: 1.6;
+}
+
+header {
+    background: #563d7c;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+.layout {
+    display: flex;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.sidebar {
+    width: 260px;
+    min-width: 230px;
+    background: white;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    height: calc(100vh - 150px);
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar h3 {
+    color: #563d7c;
+}
+
+.sidebar a {
+    display: block;
+    padding: 8px 10px;
+    text-decoration: none;
+    color: #35445c;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.sidebar a:hover {
+    background: #eee7f7;
+    color: #563d7c;
+}
+
+main {
+    flex: 1;
+    min-width: 0;
+    padding: 25px;
+}
+
+.intro {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-left: 5px solid #563d7c;
+}
+
+.topic {
+    background: white;
+    padding: 24px;
+    margin-bottom: 22px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0000000a;
+    scroll-margin-top: 20px;
+}
+
+.topic h2 {
+    color: #563d7c;
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.topic h3 {
+    color: #344563;
+    margin-bottom: 8px;
+}
+
+code {
+    font-family: Consolas, monospace;
+}
+
+pre {
+    background: #202938;
+    color: #e6edf3;
+    padding: 16px;
+    border-radius: 7px;
+    overflow-x: auto;
+    white-space: pre;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.note {
+    background: #fff4d6;
+    border-left: 4px solid #e5a000;
+    padding: 12px;
+    margin: 15px 0;
+}
+
+.example {
+    background: #f3f0f8;
+    border: 1px solid #e2d8f0;
+    border-radius: 7px;
+    padding: 15px;
+    margin: 12px 0;
+}
+
+.demo-title {
+    color: #563d7c;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th, td {
+    border: 1px solid #d8deea;
+    padding: 11px;
+    text-align: left;
+}
+
+th {
+    background: #563d7c;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f3f5f9;
+}
+
+.badge {
+    display: inline-block;
+    background: #eee7f7;
+    color: #563d7c;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+footer {
+    text-align: center;
+    background: #252c3a;
+    color: white;
+    padding: 20px;
+}
+
+@media (max-width: 800px) {
+    .layout {
+        display: block;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .topic {
+        padding: 17px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Bootstrap Study Notes</h1>
+    <p>Simple Definitions, Syntax and Examples</p>
+    <p>HTML • CSS • Bootstrap 3 and Bootstrap 5</p>
+</header>
+
+<div class="layout">
+
+<aside class="sidebar">
+    <h3>Topics</h3>
+    <nav>
+        <a href="#what">What is Bootstrap?</a>
+        <a href="#cdn">CDN Link</a>
+        <a href="#typography">Typography</a>
+        <a href="#grid">Grid Layout</a>
+        <a href="#rowcolumn">Rows and Columns</a>
+        <a href="#padding">Padding</a>
+        <a href="#margin">Margin</a>
+        <a href="#button">Buttons</a>
+        <a href="#table">Tables</a>
+        <a href="#striped">Table Striped</a>
+        <a href="#condensed">Table Condensed</a>
+        <a href="#hover">Table Hover</a>
+        <a href="#bordered">Table Bordered</a>
+        <a href="#versions">Bootstrap V3 vs V5</a>
+        <a href="#form">Forms</a>
+        <a href="#basicform">Basic Form</a>
+        <a href="#inlineform">Inline Form</a>
+        <a href="#horizontalform">Horizontal Form</a>
+        <a href="#static">Static Control</a>
+        <a href="#focus">Focus State</a>
+        <a href="#disabled">Disabled State</a>
+        <a href="#readonly">Readonly State</a>
+        <a href="#responsive">Responsive Images</a>
+        <a href="#shapes">Image Shapes</a>
+        <a href="#accordion">Accordion</a>
+        <a href="#aria">ARIA</a>
+        <a href="#card">Cards</a>
+        <a href="#helpers">Helper Classes</a>
+        <a href="#components">Components</a>
+    </nav>
+</aside>
+
+<main>
+
+<div class="intro">
+    <h2>Welcome to Bootstrap Notes</h2>
+    <p>
+        These notes explain important Bootstrap concepts using simple
+        definitions and syntax examples. They are useful for beginners,
+        revision, classroom presentations and practical examinations.
+    </p>
+    <p><span class="badge">30 Topics</span>
+       <span class="badge">Beginner Friendly</span>
+       <span class="badge">Code Examples</span></p>
+</div>
+
+<section class="topic" id="what">
+<h2>1. What is Bootstrap?</h2>
+<p><strong>Definition:</strong> Bootstrap is a front-end framework used to
+create responsive, mobile-first websites quickly. It provides ready-made
+CSS classes and optional JavaScript components.</p>
+<h3>Example syntax</h3>
+<pre><code>&lt;button class="btn btn-primary"&gt;
+    Click Me
+&lt;/button&gt;</code></pre>
+<div class="example">
+    <button style="background:#563d7c;color:white;padding:8px 15px;border:0;border-radius:5px">
+        Click Me
+    </button>
+</div>
+<p><strong>Uses:</strong> Responsive layouts, buttons, forms, tables,
+navigation bars, cards and other interface components.</p>
+</section>
+
+<section class="topic" id="cdn">
+<h2>2. CDN Link</h2>
+<p><strong>Definition:</strong> A CDN (Content Delivery Network) allows
+you to load Bootstrap files from a hosted server instead of downloading
+and storing them locally.</p>
+<h3>Bootstrap 5 CSS</h3>
+<pre><code>&lt;link
+ href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+ rel="stylesheet"&gt;</code></pre>
+<h3>Bootstrap 5 JavaScript bundle</h3>
+<pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"&gt;
+&lt;/script&gt;</code></pre>
+<div class="note">The CSS link provides styling. The JavaScript bundle is
+needed for interactive components such as dropdowns, carousels and
+accordions. Internet access is needed for these CDN files.</div>
+</section>
+
+<section class="topic" id="typography">
+<h2>3. Typography</h2>
+<p><strong>Definition:</strong> Typography controls the appearance of text,
+including headings, paragraphs, font sizes and emphasis.</p>
+<h3>Syntax</h3>
+<pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;p class="lead"&gt;Important paragraph&lt;/p&gt;
+&lt;p class="text-muted"&gt;Muted text&lt;/p&gt;
+&lt;p class="fw-bold"&gt;Bold text&lt;/p&gt;
+&lt;p class="text-center"&gt;Centered text&lt;/p&gt;</code></pre>
+<div class="example">
+    <div class="demo-title">Example</div>
+    <h2>Bootstrap Heading</h2>
+    <p class="text-muted">Muted text example</p>
+    <p><strong>Bold text example</strong></p>
+    <p style="text-align:center">Centered text example</p>
+</div>
+</section>
+
+<section class="topic" id="grid">
+<h2>4. Grid Layout</h2>
+<p><strong>Definition:</strong> The Bootstrap grid system arranges content
+into responsive rows and columns. Bootstrap 5 uses a 12-column grid.</p>
+<h3>Syntax</h3>
+<pre><code>&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-6"&gt;Left&lt;/div&gt;
+        &lt;div class="col-md-6"&gt;Right&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p><strong>Common breakpoints:</strong></p>
+<table>
+<tr><th>Class</th><th>Breakpoint</th></tr>
+<tr><td>col-</td><td>All screen sizes</td></tr>
+<tr><td>col-sm-</td><td>576px and above</td></tr>
+<tr><td>col-md-</td><td>768px and above</td></tr>
+<tr><td>col-lg-</td><td>992px and above</td></tr>
+<tr><td>col-xl-</td><td>1200px and above</td></tr>
+<tr><td>col-xxl-</td><td>1400px and above</td></tr>
+</table>
+</section>
+
+<section class="topic" id="rowcolumn">
+<h2>5. Row and Column</h2>
+<p><strong>Definition:</strong> A row groups columns horizontally.
+Columns hold the content inside the grid.</p>
+<h3>Syntax</h3>
+<pre><code>&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-4"&gt;Column 1&lt;/div&gt;
+        &lt;div class="col-4"&gt;Column 2&lt;/div&gt;
+        &lt;div class="col-4"&gt;Column 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>Each <code>col-4</code> occupies 4 of the 12 grid columns, giving
+three equal-width columns.</p>
+</section>
+
+<section class="topic" id="padding">
+<h2>6. Padding</h2>
+<p><strong>Definition:</strong> Padding is the space inside an element,
+between its content and its border.</p>
+<h3>Syntax</h3>
+<pre><code>p-3   /* padding on all sides */
+pt-3  /* padding on top */
+pb-3  /* padding on bottom */
+ps-3  /* padding at start */
+pe-3  /* padding at end */
+px-3  /* horizontal padding */
+py-3  /* vertical padding */</code></pre>
+<p>Bootstrap 5 spacing utilities generally use values from 0 to 5.</p>
+<pre><code>&lt;div class="p-3 bg-light"&gt;
+    Content with padding
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="topic" id="margin">
+<h2>7. Margin</h2>
+<p><strong>Definition:</strong> Margin is the space outside an element's
+border, separating it from other elements.</p>
+<h3>Syntax</h3>
+<pre><code>m-3   /* margin on all sides */
+mt-3  /* margin top */
+mb-3  /* margin bottom */
+ms-3  /* margin start */
+me-3  /* margin end */
+mx-3  /* horizontal margin */
+my-3  /* vertical margin */
+mx-auto /* horizontal auto margins */</code></pre>
+<pre><code>&lt;div class="mt-3 mb-4"&gt;
+    Content with margins
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="topic" id="button">
+<h2>8. Button</h2>
+<p><strong>Definition:</strong> Bootstrap buttons provide ready-made
+styles for clickable actions.</p>
+<h3>Syntax</h3>
+<pre><code>&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;Success&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;Delete&lt;/button&gt;
+&lt;button class="btn btn-warning"&gt;Warning&lt;/button&gt;
+&lt;button class="btn btn-outline-primary"&gt;Outline&lt;/button&gt;</code></pre>
+<div class="example">
+    <button style="background:#0d6efd;color:white;border:0;padding:8px 12px;border-radius:5px">Primary</button>
+    <button style="background:#198754;color:white;border:0;padding:8px 12px;border-radius:5px">Success</button>
+    <button style="background:#dc3545;color:white;border:0;padding:8px 12px;border-radius:5px">Danger</button>
+</div>
+</section>
+
+<section class="topic" id="table">
+<h2>9. Table</h2>
+<p><strong>Definition:</strong> A table displays data in rows and columns.
+Bootstrap's <code>table</code> class adds basic table styling.</p>
+<h3>Syntax</h3>
+<pre><code>&lt;table class="table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Arun&lt;/td&gt;
+            &lt;td&gt;20&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</section>
+
+<section class="topic" id="striped">
+<h2>10. Table Striped</h2>
+<p><strong>Definition:</strong> Alternating row backgrounds make table data
+easier to read.</p>
+<pre><code>&lt;table class="table table-striped"&gt;
+    ...
+&lt;/table&gt;</code></pre>
+<p><strong>Note:</strong> <code>table-striped</code> is available in
+Bootstrap 3 and Bootstrap 5.</p>
+</section>
+
+<section class="topic" id="condensed">
+<h2>11. Table Condensed</h2>
+<p><strong>Definition:</strong> A condensed table uses less vertical space
+by reducing cell padding.</p>
+<h3>Bootstrap 3 syntax</h3>
+<pre><code>&lt;table class="table table-condensed"&gt;
+    ...
+&lt;/table&gt;</code></pre>
+<h3>Bootstrap 5 equivalent</h3>
+<pre><code>&lt;table class="table table-sm"&gt;
+    ...
+&lt;/table&gt;</code></pre>
+<div class="note">Bootstrap 5 uses <code>table-sm</code> instead of
+<code>table-condensed</code>.</div>
+</section>
+
+<section class="topic" id="hover">
+<h2>12. Table Hover</h2>
+<p><strong>Definition:</strong> The hover style highlights a row when the
+mouse pointer moves over it.</p>
+<pre><code>&lt;table class="table table-hover"&gt;
+    ...
+&lt;/table&gt;</code></pre>
+</section>
+
+<section class="topic" id="bordered">
+<h2>13. Table Bordered</h2>
+<p><strong>Definition:</strong> Adds borders around the table and its cells.</p>
+<pre><code>&lt;table class="table table-bordered"&gt;
+    ...
+&lt;/table&gt;</code></pre>
+<p>Other useful table classes include <code>table-dark</code>,
+<code>table-striped</code>, <code>table-hover</code> and
+<code>table-responsive</code>.</p>
+</section>
+
+<section class="topic" id="versions">
+<h2>14. Bootstrap V3 vs Bootstrap V5</h2>
+<p><strong>Definition:</strong> Bootstrap 3 and Bootstrap 5 are different
+versions of the same front-end framework, with changes in layout,
+utilities, browser support and component syntax.</p>
+<table>
+<tr><th>Feature</th><th>Bootstrap 3</th><th>Bootstrap 5</th></tr>
+<tr><td>Release</td><td>2013</td><td>2021</td></tr>
+<tr><td>Grid</td><td>12 columns</td><td>12 columns</td></tr>
+<tr><td>Grid breakpoints</td><td>xs, sm, md, lg</td><td>xs, sm, md, lg, xl, xxl</td></tr>
+<tr><td>JavaScript dependency</td><td>jQuery required</td><td>No jQuery required</td></tr>
+<tr><td>Left/right spacing</td><td>Left and right naming</td><td>Start and end naming</td></tr>
+<tr><td>Small table</td><td>table-condensed</td><td>table-sm</td></tr>
+<tr><td>Hidden text</td><td>sr-only</td><td>visually-hidden</td></tr>
+<tr><td>Data attributes</td><td>data-toggle</td><td>data-bs-toggle</td></tr>
+<tr><td>Form controls</td><td>Legacy form classes</td><td>form-control, form-select</td></tr>
+</table>
+<h3>Example: Dropdown toggle</h3>
+<pre><code>&lt;!-- Bootstrap 3 --&gt;
+data-toggle="dropdown"
+
+&lt;!-- Bootstrap 5 --&gt;
+data-bs-toggle="dropdown"</code></pre>
+</section>
+
+<section class="topic" id="form">
+<h2>15. Form</h2>
+<p><strong>Definition:</strong> A form collects user information such as
+names, email addresses, passwords and selections.</p>
+<h3>Common form classes</h3>
+<pre><code>form-label
+form-control
+form-select
+form-check
+form-check-input
+form-check-label</code></pre>
+</section>
+
+<section class="topic" id="basicform">
+<h2>16. Basic Form Example</h2>
+<p><strong>Definition:</strong> A basic form arranges labels and input
+fields vertically.</p>
+<pre><code>&lt;form&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="name" class="form-label"&gt;Name&lt;/label&gt;
+        &lt;input type="text" id="name" class="form-control"&gt;
+    &lt;/div&gt;
+
+    &lt;div class="mb-3"&gt;
+        &lt;label for="email" class="form-label"&gt;Email&lt;/label&gt;
+        &lt;input type="email" id="email" class="form-control"&gt;
+    &lt;/div&gt;
+
+    &lt;button class="btn btn-primary" type="submit"&gt;
+        Submit
+    &lt;/button&gt;
+&lt;/form&gt;</code></pre>
+</section>
+
+<section class="topic" id="inlineform">
+<h2>17. Inline Form</h2>
+<p><strong>Definition:</strong> An inline form places multiple form controls
+on the same horizontal line when space permits.</p>
+<h3>Bootstrap 3 syntax</h3>
+<pre><code>&lt;form class="form-inline"&gt;
+    &lt;input type="text" class="form-control"
+           placeholder="Name"&gt;
+    &lt;button class="btn btn-primary"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+<h3>Bootstrap 5 syntax</h3>
+<pre><code>&lt;form class="row row-cols-lg-auto g-3 align-items-center"&gt;
+    &lt;div class="col-12"&gt;
+        &lt;input class="form-control" placeholder="Name"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-12"&gt;
+        &lt;button class="btn btn-primary"&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+<div class="note">Bootstrap 5 removed the old <code>form-inline</code>
+class. Grid and flex utilities can be used to arrange controls horizontally.</div>
+</section>
+
+<section class="topic" id="horizontalform">
+<h2>18. Horizontal Form</h2>
+<p><strong>Definition:</strong> A horizontal form places labels and input
+fields side by side in the same row.</p>
+<h3>Bootstrap 3 syntax</h3>
+<pre><code>&lt;form class="form-horizontal"&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label class="control-label col-sm-2"&gt;Name&lt;/label&gt;
+        &lt;div class="col-sm-10"&gt;
+            &lt;input class="form-control" type="text"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+<h3>Bootstrap 5 syntax</h3>
+<pre><code>&lt;div class="row mb-3"&gt;
+    &lt;label class="col-sm-2 col-form-label"&gt;Name&lt;/label&gt;
+    &lt;div class="col-sm-10"&gt;
+        &lt;input class="form-control" type="text"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="topic" id="static">
+<h2>19. Static Control</h2>
+<p><strong>Definition:</strong> A static control displays a value as text
+rather than as an editable input field.</p>
+<h3>Bootstrap 3 syntax</h3>
+<pre><code>&lt;p class="form-control-static"&gt;
+    student@example.com
+&lt;/p&gt;</code></pre>
+<h3>Bootstrap 5 syntax</h3>
+<pre><code>&lt;p class="form-control-plaintext"&gt;
+    student@example.com
+&lt;/p&gt;</code></pre>
+</section>
+
+<section class="topic" id="focus">
+<h2>20. Focus State</h2>
+<p><strong>Definition:</strong> The focus state indicates that an input
+field is currently selected or ready for keyboard input.</p>
+<pre><code>&lt;input type="text" class="form-control"
+       placeholder="Click or tab here"&gt;</code></pre>
+<p>Bootstrap styles focused inputs automatically. The browser can also
+move focus using the Tab key.</p>
+</section>
+
+<section class="topic" id="disabled">
+<h2>21. Disabled State</h2>
+<p><strong>Definition:</strong> A disabled field cannot normally be edited
+or focused by the user.</p>
+<pre><code>&lt;input type="text" class="form-control"
+       value="Not available" disabled&gt;
+
+&lt;button class="btn btn-primary" disabled&gt;
+    Submit
+&lt;/button&gt;</code></pre>
+</section>
+
+<section class="topic" id="readonly">
+<h2>22. Readonly State</h2>
+<p><strong>Definition:</strong> A readonly input displays a value that the
+user cannot edit, but its value can still be submitted with a form.</p>
+<pre><code>&lt;input type="text" class="form-control"
+       value="Arun" readonly&gt;</code></pre>
+<table>
+<tr><th>Disabled</th><th>Readonly</th></tr>
+<tr><td>Cannot normally be edited or focused</td><td>Cannot be edited</td></tr>
+<tr><td>Not submitted with the form</td><td>Submitted with the form</td></tr>
+<tr><td>Often shown as unavailable</td><td>Can remain visually similar to a normal field</td></tr>
+</table>
+</section>
+
+<section class="topic" id="responsive">
+<h2>23. Responsive Images</h2>
+<p><strong>Definition:</strong> Responsive images scale to fit their
+container without overflowing it.</p>
+<h3>Syntax</h3>
+<pre><code>&lt;img src="photo.jpg"
+     class="img-fluid"
+     alt="Landscape"&gt;</code></pre>
+<p>In Bootstrap 5, <code>img-fluid</code> applies
+<code>max-width: 100%</code> and <code>height: auto</code>.</p>
+</section>
+
+<section class="topic" id="shapes">
+<h2>24. Image Shapes</h2>
+<p><strong>Definition:</strong> Image shape classes change how an image's
+corners and outline appear.</p>
+<h3>Syntax</h3>
+<pre><code>&lt;img src="photo.jpg" class="rounded" alt="Photo"&gt;
+
+&lt;img src="photo.jpg" class="rounded-circle" alt="Circle"&gt;
+
+&lt;img src="photo.jpg" class="img-thumbnail" alt="Thumbnail"&gt;</code></pre>
+<table>
+<tr><th>Class</th><th>Effect</th></tr>
+<tr><td>rounded</td><td>Rounded corners</td></tr>
+<tr><td>rounded-circle</td><td>Circular appearance for a suitable square image</td></tr>
+<tr><td>img-thumbnail</td><td>Thumbnail with border and padding</td></tr>
+</table>
+</section>
+
+<section class="topic" id="accordion">
+<h2>25. Accordion</h2>
+<p><strong>Definition:</strong> An accordion is a component that expands
+and collapses sections of content.</p>
+<h3>Bootstrap 5 syntax</h3>
+<pre><code>&lt;div class="accordion" id="myAccordion"&gt;
+    &lt;div class="accordion-item"&gt;
+
+        &lt;h2 class="accordion-header" id="headingOne"&gt;
+            &lt;button class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"&gt;
+                What is Bootstrap?
+            &lt;/button&gt;
+        &lt;/h2&gt;
+
+        &lt;div id="collapseOne"
+             class="accordion-collapse collapse show"
+             aria-labelledby="headingOne"
+             data-bs-parent="#myAccordion"&gt;
+
+            &lt;div class="accordion-body"&gt;
+                Bootstrap is a front-end framework.
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<div class="note">The example requires Bootstrap CSS and the Bootstrap
+JavaScript bundle to expand and collapse. HTML and CSS alone do not
+provide Bootstrap's JavaScript accordion behavior.</div>
+</section>
+
+<section class="topic" id="aria">
+<h2>26. ARIA</h2>
+<p><strong>Definition:</strong> ARIA stands for Accessible Rich Internet
+Applications. It adds accessibility information to elements so assistive
+technologies can understand their roles and states.</p>
+<h3>Common attributes</h3>
+<pre><code>aria-label="Close"
+aria-expanded="false"
+aria-controls="menu"
+aria-hidden="true"
+role="button"</code></pre>
+<h3>Example</h3>
+<pre><code>&lt;button type="button"
+        aria-label="Close dialog"&gt;
+    X
+&lt;/button&gt;</code></pre>
+<p>Use native HTML elements whenever possible. ARIA adds accessibility
+information but does not automatically create keyboard behavior or
+functionality.</p>
+</section>
+
+<section class="topic" id="card">
+<h2>27. Card</h2>
+<p><strong>Definition:</strong> A card is a flexible content container
+used to display related information such as images, headings, text and
+buttons.</p>
+<h3>Syntax</h3>
+<pre><code>&lt;div class="card" style="width: 18rem;"&gt;
+    &lt;img src="japan.jpg" class="card-img-top" alt="Japan"&gt;
+
+    &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Japan&lt;/h5&gt;
+        &lt;p class="card-text"&gt;
+            Discover Japan.
+        &lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary"&gt;
+            Learn More
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="topic" id="helpers">
+<h2>28. Helper Classes</h2>
+<p><strong>Definition:</strong> Helper and utility classes apply common
+styling without requiring you to write additional CSS.</p>
+<table>
+<tr><th>Class</th><th>Purpose</th></tr>
+<tr><td>text-center</td><td>Center text</td></tr>
+<tr><td>text-danger</td><td>Danger-colored text</td></tr>
+<tr><td>bg-dark</td><td>Dark background</td></tr>
+<tr><td>text-white</td><td>White text</td></tr>
+<tr><td>d-none</td><td>Hide an element</td></tr>
+<tr><td>d-flex</td><td>Use flexbox layout</td></tr>
+<tr><td>justify-content-center</td><td>Center items along the main axis</td></tr>
+<tr><td>align-items-center</td><td>Align items along the cross axis</td></tr>
+<tr><td>w-100</td><td>Set width to 100%</td></tr>
+<tr><td>rounded</td><td>Round corners</td></tr>
+<tr><td>shadow</td><td>Add a box shadow</td></tr>
+<tr><td>mt-3</td><td>Add top margin</td></tr>
+<tr><td>p-3</td><td>Add padding on all sides</td></tr>
+<tr><td>visually-hidden</td><td>Hide visually while keeping content accessible</td></tr>
+</table>
+<h3>Example</h3>
+<pre><code>&lt;div class="bg-dark text-white text-center p-3 rounded"&gt;
+    Welcome to Bootstrap
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="topic" id="components">
+<h2>29. Components</h2>
+<p><strong>Definition:</strong> Components are reusable interface elements
+provided by Bootstrap to build websites quickly and consistently.</p>
+<table>
+<tr><th>Component</th><th>Purpose</th></tr>
+<tr><td>Navbar</td><td>Website navigation</td></tr>
+<tr><td>Carousel</td><td>Slideshow of images or content</td></tr>
+<tr><td>Dropdown</td><td>Menu that opens to show options</td></tr>
+<tr><td>Accordion</td><td>Expandable content sections</td></tr>
+<tr><td>Card</td><td>Organized content container</td></tr>
+<tr><td>Modal</td><td>Dialog displayed over the page</td></tr>
+<tr><td>Alert</td><td>Status or feedback message</td></tr>
+<tr><td>Badge</td><td>Small label or count</td></tr>
+<tr><td>Pagination</td><td>Navigation between pages</td></tr>
+<tr><td>Progress</td><td>Shows task completion progress</td></tr>
+<tr><td>Tooltip</td><td>Short contextual information</td></tr>
+<tr><td>List group</td><td>Displays a group of related items</td></tr>
+</table>
+<h3>Example syntax: Navbar</h3>
+<pre><code>&lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;My Website&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+</section>
+
+<section class="topic">
+<h2>30. Quick Revision</h2>
+<table>
+<tr><th>Topic</th><th>Remember</th></tr>
+<tr><td>Bootstrap</td><td>Responsive front-end framework</td></tr>
+<tr><td>CDN</td><td>Loads hosted framework files</td></tr>
+<tr><td>Grid</td><td>12-column responsive layout</td></tr>
+<tr><td>Padding</td><td>Space inside the border</td></tr>
+<tr><td>Margin</td><td>Space outside the border</td></tr>
+<tr><td>Button</td><td>Use the btn class</td></tr>
+<tr><td>Small table</td><td>table-sm in Bootstrap 5</td></tr>
+<tr><td>Responsive image</td><td>img-fluid</td></tr>
+<tr><td>Card</td><td>card and card-body</td></tr>
+<tr><td>Accordion</td><td>Expands and collapses content</td></tr>
+<tr><td>ARIA</td><td>Accessibility information</td></tr>
+<tr><td>Bootstrap 5</td><td>No jQuery dependency</td></tr>
+</table>
+</section>
+
+</main>
+</div>
+
+<footer>
+    <p>Bootstrap Study Notes</p>
+    <p>Learn • Practice • Revise</p>
+</footer>
+
+</body>
+</html>
