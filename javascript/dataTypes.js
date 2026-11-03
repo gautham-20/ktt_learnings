@@ -100,9 +100,9 @@ console.log("Concatenation: " + str3.concat(" ", str4))
 let strARR = "Cat, Dog, Elephant";
 console.log("Slice: " + strARR.slice(5, 13));
 console.log("toLowerCase: " + str4.toLocaleLowerCase());
-let str5 = "Hello World \uD800";
-console.log("" + str5.toWellFormed());
-let str6 = "              I am Batman                  ";
+let str5 = "Hello World \uD800"; 
+console.log("" + str5.toWellFormed()); 
+let str6 = "              I am Batman                  "; //removing whitespaces
 console.log("Trim: " + str6.trim());
 console.log("Trim at start: " + str6.trimStart());
 console.log("Trim at End: " + str6.trimEnd());
@@ -112,7 +112,7 @@ console.log("padEnd: " + text1.padEnd(5, "x"));
 console.log("Repeat '5' five times: " + text1.repeat(5));
 let text3 = "Please visit the Factory the init";
 console.log("Replace: " + text3.replace("Factory", "company"));
-console.log("Split: " + text3.split(" "));
+console.log("Split: " + text3.split(" "));                   // search
 console.log("Search: " + text3.search("visit"));
 const t4 = text3.match(/it/g);
 console.log("Match: " + t4);
@@ -136,7 +136,30 @@ for(let i = 0; i< arr1.length; i++)
 console.log("Sorting: "+arr1.sort());
 console.log("Length of an array is "+arr1.length);
 const app = arr1.push("Ship");
-console.log(arr1);
+console.log("After pushing the new element in an array: "+arr1);
 console.log("typeOf array is : "+typeof arr1);
 console.log("isArray: "+Array.isArray(arr1));
+console.log("Array Reverse: "+ arr1.reverse());
+console.log("Pop Element in Array is "+arr1.pop());
+console.log(arr1);
+console.log("Shift Array: "+arr1.shift("Ship"));
+console.log(arr1);
+console.log("Unshift: "+arr1.unshift("Aeroplane"));
+console.log(arr1);
+const alphabet = ["Gmail", "Chrome", "YouTube", "Playstore"];
+const microsoft = ["Outlook", "Edge", "Teams", "Windows"];
+console.log("Merging Two Arrays: "+"[ "+alphabet.concat(microsoft)+" ]");
+const arr5 = [[1,2],[3,4],[5,6]];
+console.log("Flat method: "+arr5.flat());
 
+//iterations
+console.log("For Loop");
+for(let i = 0;i<10;i++)
+    console.log(i);
+
+console.log("\nWhile loop");
+var i=1;
+while(i<10){
+    console.log(i+" x 5 = "+i*5);
+    i++;
+}
