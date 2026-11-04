@@ -100,8 +100,8 @@ console.log("Concatenation: " + str3.concat(" ", str4))
 let strARR = "Cat, Dog, Elephant";
 console.log("Slice: " + strARR.slice(5, 13));
 console.log("toLowerCase: " + str4.toLocaleLowerCase());
-let str5 = "Hello World \uD800"; 
-console.log("" + str5.toWellFormed()); 
+let str5 = "Hello World \uD800";
+console.log("" + str5.toWellFormed());
 let str6 = "              I am Batman                  "; //removing whitespaces
 console.log("Trim: " + str6.trim());
 console.log("Trim at start: " + str6.trimStart());
@@ -130,36 +130,197 @@ const arr2 = [];
 arr2[0] = "Bike";
 arr2[1] = "Cycle";
 
-for(let i = 0; i< arr1.length; i++)
-    console.log("Array 1 "+ arr1[i])
+for (let i = 0; i < arr1.length; i++)
+    console.log("Array 1 " + arr1[i])
 
-console.log("Sorting: "+arr1.sort());
-console.log("Length of an array is "+arr1.length);
+console.log("Sorting: " + arr1.sort());
+console.log("Length of an array is " + arr1.length);
 const app = arr1.push("Ship");
-console.log("After pushing the new element in an array: "+arr1);
-console.log("typeOf array is : "+typeof arr1);
-console.log("isArray: "+Array.isArray(arr1));
-console.log("Array Reverse: "+ arr1.reverse());
-console.log("Pop Element in Array is "+arr1.pop());
+console.log("After pushing the new element in an array: " + arr1);
+console.log("typeOf array is : " + typeof arr1);
+console.log("isArray: " + Array.isArray(arr1));
+console.log("Array Reverse: " + arr1.reverse());
+console.log("Pop Element in Array is " + arr1.pop());
 console.log(arr1);
-console.log("Shift Array: "+arr1.shift("Ship"));
+console.log("Shift Array: " + arr1.shift("Ship"));
 console.log(arr1);
-console.log("Unshift: "+arr1.unshift("Aeroplane"));
+console.log("Unshift: " + arr1.unshift("Aeroplane"));
 console.log(arr1);
 const alphabet = ["Gmail", "Chrome", "YouTube", "Playstore"];
 const microsoft = ["Outlook", "Edge", "Teams", "Windows"];
-console.log("Merging Two Arrays: "+"[ "+alphabet.concat(microsoft)+" ]");
-const arr5 = [[1,2],[3,4],[5,6]];
-console.log("Flat method: "+arr5.flat());
+console.log("Merging Two Arrays: " + "[" + alphabet.concat(microsoft) + "]");
+const arr5 = [[1, 2], [3, 4], [5, 6]];
+console.log("Flat method: " + arr5.flat());
 
 //iterations
 console.log("For Loop");
-for(let i = 0;i<10;i++)
+for (let i = 0; i < 10; i++)
     console.log(i);
 
 console.log("\nWhile loop");
-var i=1;
-while(i<10){
-    console.log(i+" x 5 = "+i*5);
+var i = 1;
+while (i < 10) {
+    console.log(i + " x 5 = " + i * 5);
     i++;
 }
+
+console.log("\n");
+
+let j1 = 0;
+do {
+    console.log("Do While iteration: " + j1);
+    j1++;
+} while (j1 < 10);
+
+
+const person = {
+    firstName: "John",
+    lastName: "Wick",        // it is typically used for iterating over object keys
+    age: "50",
+};
+console.log("\nPrinting the values using for.. in")
+for (let key in person) {                               // iterate over properties of an object
+    console.log(person[key]);
+}
+
+const cars = ["BMW", "Volvo", "Tesla", "BYD", "Ford Mustang"];
+for (let x of cars) {                                   // iterate over array like object
+    console.log("Cars Name: " + x);
+}
+
+
+const myIter = Iterator.from([1, 2, 3, 4, 5, 6, 7]);
+for (let x of myIter) {
+    console.log(x)
+}
+const remIter = myIter.drop(5)
+for (let a of remIter) {
+    console.log(a);
+}
+
+const myIterate = Iterator.from("\nusing the for each\n");
+myIterate.forEach(element => {
+    console.log(element);
+});
+
+const numbers = [1, 2, 4, 5];
+const a = numbers.map(n => n * n);
+console.log(a);
+console.log(typeof a);
+
+const Student1 = new Map();
+Student1.set(101, "Anand");
+Student1.set(102, "Anbu");
+Student1.set(103, "Siva");
+Student1.set(true, "Gautham");
+
+// to display 
+console.log(Student1);
+
+//retrieving data get()
+console.log("Retrieving Data: " + Student1.get(103));
+
+console.log("Retrieving Data: " + Student1.get(true));
+
+console.log("Checking Data: " + Student1.has(106));
+
+Student1.delete(101);
+
+console.log(Student1);
+
+console.log("Size of the Map: " + Student1.size);
+
+Student1.clear();
+
+console.log(Student1);
+
+const letters = new Set();
+letters.add("A");
+letters.add("B");
+letters.add("C");
+
+console.log(typeof letters);
+
+console.log(letters instanceof Set);
+
+// const stuDetails = new Map();
+
+// let stu = {
+//     name: "Logan"
+// };
+
+// WeakMap.set(user, "Student");
+
+// user = null;
+
+const st1 = {
+    name: "Gautham",
+    age: 22,
+    department: "MCA"
+};
+
+console.log(Object.keys(st1)); //keys
+
+console.log(Object.values(st1)); //values
+
+console.log(Object.entries(st1)); //entries
+
+// normally accessing array element
+console.log("Using Array")
+
+const std1 = ["Kavin", 21, "MBA"];
+
+const name3 = std1[0];
+
+const age = std1[1];
+
+const dept = std1[2];
+
+console.log(name3);
+console.log(age);
+console.log(dept);
+
+//using the deconstructing assignment
+
+const [daNname, daAge, daDept] = std1;
+console.log("\nUsing Destructuring Assignment")
+console.log(daNname);
+console.log(daAge);
+console.log(daDept);
+//date
+console.log("\nDate and Time")
+const date = new Date();
+//console.log(date.toLocaleTimeString());
+const day1 = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const month1 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+console.log("Today is " + day1[date.getDay()] + " " + month1[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear() + "\nTime " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+//console.log(date.toDateString());
+//console.log(date.toString());
+
+function fibo(n) {
+    if (n === 0)
+        return 0;
+
+    if (n === 1)
+        return 1;
+
+    return fibo(n - 1) + fibo(n - 2);
+}
+
+console.log("Fibonacci using recursion fibo(10) is "+fibo(10));
+
+const txt1 = {
+    firstName: "John",
+    lastName: "Wick",
+    age: "50"
+};
+
+// Convert object into JSON string
+const jsonData1 = JSON.stringify(txt1);
+
+console.log("\n using the JSON.srtingify: "+jsonData1);
+
+// Convert JSON string into JavaScript object
+const parseData = JSON.parse(jsonData1);
+
+console.log("\n using the JSON.parse: "+parseData);
