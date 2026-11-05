@@ -307,7 +307,7 @@ function fibo(n) {
     return fibo(n - 1) + fibo(n - 2);
 }
 
-console.log("Fibonacci using recursion fibo(10) is "+fibo(10));
+console.log("Fibonacci using recursion fibo(10) is " + fibo(10));
 
 const txt1 = {
     firstName: "John",
@@ -318,9 +318,163 @@ const txt1 = {
 // Convert object into JSON string
 const jsonData1 = JSON.stringify(txt1);
 
-console.log("\n using the JSON.srtingify: "+jsonData1);
+console.log("\n using the JSON.srtingify: " + jsonData1);
 
 // Convert JSON string into JavaScript object
 const parseData = JSON.parse(jsonData1);
 
-console.log("\n using the JSON.parse: "+parseData);
+console.log("\n using the JSON.parse: " + parseData);
+
+const nos = [10, 20, 30, 40, 50, 60, 50, 10];
+
+//const uniqueNos = new Set(nos);
+
+console.log(new Set(nos));
+
+
+let stacks = [];
+stacks.push(130);
+stacks.push(150);
+stacks.push(188);
+console.log("\nThe stack contains " + stacks);
+console.log("The Popped elemeny is " + stacks.pop(188));
+console.log("\nAfter Pop the stack contains " + stacks);
+console.log("Peek() element is " + stacks[stacks.length - 1]);
+
+// Rest parameter
+
+function restParam(name, age, ...marks) {
+    console.log("\nRest Parameters\nName: ", name);
+    console.log("Age: " + age);
+    console.log("Marks: " + marks);
+
+
+}
+
+restParam("Gautham", 22, 80, 70, 87, 90, 100);
+
+//Spread Parameters
+console.log("\nSpread Parameters")
+let nos1 = [20, 30, 60, 80, 70];
+console.log(...nos1);
+
+// closure 
+
+function outer() {
+    let count = 0;
+
+    function inner() {
+        count++;
+        console.log(count);
+    }
+
+    return inner;
+}
+
+const counter = outer();
+console.log("\nClosure")
+for (let i = 0; i < 10; i++)
+    counter();
+
+
+if (true) {
+    var intNew = 1;
+}
+
+console.log(intNew);
+
+// function sayHi(){
+//     console.log("Hello")
+// }
+
+//setTimeout(sayHi,5000);
+//setInterval(sayHi,5000);
+
+// decorator
+
+function decorator(func) {
+    return function () {
+        console.log("Hello");
+
+        greetings();
+
+        console.log("!");
+    }
+};
+
+function greetings() {
+    console.log("World");
+}
+let result1 = decorator(greetings)
+result1();
+console.log("\ncall()");
+let std3 = {
+    name: "Gautham"
+};
+
+let std4 = {
+    name: "Sam"
+};
+
+function intro(city){
+    console.log(this.name+" from "+city);
+
+}
+
+intro.call(std3, "Salem");
+
+intro.call(std4, "Omalur");  
+
+console.log("\napply()");
+let std5={
+    name:"Vijay"
+};
+
+let std6={
+    name:"Parthiban"
+};
+
+function greet1(city, age){
+    console.log("\nName: "+this.name);
+    console.log("City: "+city);
+    console.log("Age: "+age);
+    
+}
+
+greet1.apply(std5, ["Salem", 21]);
+greet1.apply(std6, ["Chennai", 22]);
+
+
+// arrow function with one parameter 
+const gret = (name) =>{
+    console.log("\nHello, This is "+name+" and this an example for arrow function revisited "+name);
+}
+gret("Gautham");
+
+
+// arrow function with two parameter
+
+const add = (a,b) => {
+    return a+b;
+}
+
+console.log("Addition of 10 + 20 = "+add(10,20));
+
+let names1 = {};
+
+Object.defineProperty(names1, "name",{
+    value:"Vignesh",
+    writable:0,  //false
+    enumerable:0
+    
+
+});
+
+names1.age=22;
+
+console.log(Object.keys(names1));
+
+names1.name="John";
+
+console.log(names1.name);
+
