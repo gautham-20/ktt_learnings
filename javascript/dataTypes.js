@@ -1,3 +1,5 @@
+//"use strict";
+
 // Primitive Data Types
 
 //Numbers
@@ -416,29 +418,29 @@ let std4 = {
     name: "Sam"
 };
 
-function intro(city){
-    console.log(this.name+" from "+city);
+function intro(city) {
+    console.log(this.name + " from " + city);
 
 }
 
 intro.call(std3, "Salem");
 
-intro.call(std4, "Omalur");  
+intro.call(std4, "Omalur");
 
 console.log("\napply()");
-let std5={
-    name:"Vijay"
+let std5 = {
+    name: "Vijay"
 };
 
-let std6={
-    name:"Parthiban"
+let std6 = {
+    name: "Parthiban"
 };
 
-function greet1(city, age){
-    console.log("\nName: "+this.name);
-    console.log("City: "+city);
-    console.log("Age: "+age);
-    
+function greet1(city, age) {
+    console.log("\nName: " + this.name);
+    console.log("City: " + city);
+    console.log("Age: " + age);
+
 }
 
 greet1.apply(std5, ["Salem", 21]);
@@ -446,35 +448,163 @@ greet1.apply(std6, ["Chennai", 22]);
 
 
 // arrow function with one parameter 
-const gret = (name) =>{
-    console.log("\nHello, This is "+name+" and this an example for arrow function revisited "+name);
+const gret = (name) => {
+    console.log("\nHello, This is " + name + " and this an example for arrow function revisited " + name);
 }
 gret("Gautham");
 
 
 // arrow function with two parameter
 
-const add = (a,b) => {
-    return a+b;
+const add = (a, b) => {
+    return a + b;
 }
 
-console.log("Addition of 10 + 20 = "+add(10,20));
+console.log("Addition of 10 + 20 = " + add(10, 20));
 
 let names1 = {};
 
-Object.defineProperty(names1, "name",{
-    value:"Vignesh",
-    writable:0,  //false
-    enumerable:0
-    
+Object.defineProperty(names1, "name", {
+    value: "Vignesh",
+    writable: 0,  //false
+    enumerable: 0
+
 
 });
 
-names1.age=22;
+names1.age = 22;
 
 console.log(Object.keys(names1));
 
-names1.name="John";
+names1.name = "John";
 
 console.log(names1.name);
 
+
+let mobileSpec = {
+    mobile: "Samsung",
+    ram: "16 GB",
+    cpu: "Snapdragon 88",
+
+    getSpec: function () {
+        console.log(this.cpu);
+    }
+};
+
+let mobileSpec1 = {
+    mobile: "Samsung",
+    ram: "16 GB",
+    cpu: "MediaTek",
+
+    getSpec: function () {
+        console.log(this.cpu);
+    }
+};
+
+mobileSpec.getSpec();
+
+mobileSpec1.getSpec();
+
+
+// inside object method
+const emp1 = {
+    name: "John",
+    salary: 50000,
+
+    displayDetails() {
+        console.log("\nthis keyword\ninside object method");
+        console.log(this.name);
+        console.log(this.salary);
+    }
+};
+
+emp1.displayDetails();
+
+//inside a normal function
+function display1(){
+    console.log(this);
+}
+
+display1();
+
+//getter and setter
+const personAge = {
+
+    ag: 30,
+
+    get age() {
+        return this.ag;
+    },
+
+    set age(value) {
+        if (value < 0) {
+            console.log("Age cannot be negative!");
+            return;
+        }
+
+        this.ag = value;
+    }
+};
+
+personAge.age = 25;
+
+console.log(personAge.ag);
+console.log(personAge.age);
+
+console.log(typeof Object.getOwnPropertyDescriptor);
+
+
+// setter method 
+const person2 = {
+    firstName1: "John",
+    lastName1: "Doe",
+    language: "NO",
+    set lang(value){
+        this.language = value;
+    }
+};
+
+person2.lang = "en";
+
+console.log(person2.language);
+
+//class 
+
+class studentClass{
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+
+    study(){
+        console.log(this.name + " is studying");
+    }
+}
+
+const stuCla1 = new studentClass("Gautham", 22);
+const stuCla2 = new studentClass("Sam", 22);
+
+console.log(stuCla1.name);
+console.log(stuCla2.age);
+
+stuCla1.study();
+stuCla2.study();
+
+//inheritance
+
+class Animal{
+    eat(){
+        console.log("Animal is eating");
+    }
+}
+
+class Dog extends Animal{
+    bark(){
+        console.log("Dog is barking");
+    }
+}
+
+
+const Sound = new Dog();
+Sound.bark();
+Sound.eat();
