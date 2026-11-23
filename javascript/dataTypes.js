@@ -22,12 +22,12 @@ let floatPre = 0.2 + 0.1;    //the float precision does not give the 100% accura
 console.log("Float Precision: " + floatPre);
 
 // The JavaScript interpreter works from left to right.
-// In JavaScript + is used for concatenation and addition 
+// In JavaScript + is used for concatenation and addition. 
 
 let x1 = 10;
 let y1 = 100;
 console.log("Addition of 10 + 100 is " + (x1 + y1));
-console.log(x1 + "100")
+console.log(x1 + "100");
 let z1 = "200";
 let res = x1 + y1 + z1;
 console.log("Result " + res); //110200 came because of res is a string
@@ -440,7 +440,6 @@ function greet1(city, age) {
     console.log("\nName: " + this.name);
     console.log("City: " + city);
     console.log("Age: " + age);
-
 }
 
 greet1.apply(std5, ["Salem", 21]);
@@ -468,8 +467,6 @@ Object.defineProperty(names1, "name", {
     value: "Vignesh",
     writable: 0,  //false
     enumerable: 0
-
-
 });
 
 names1.age = 22;
