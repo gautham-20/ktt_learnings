@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <style>
+      * {
+        background-color: aliceblue;
+      }
+
+      #resetBtn,
+      #calculateBtn {
+        background-color: rgb(9, 125, 9);
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Calculate Your Body Mass Index - BMI</h1>
+
+    <form>
+      
+      <label for="height">Enter your Height (in cms):</label>
+      <input
+        type="number"
+        name="height"
+        id="height"
+        placeholder="Height in cms"
+      />
+      <br /><br />
+
+      <label for="weight">Enter your Weight (in kgs):</label>
+      <input
+        type="number"
+        name="weight"
+        id="weight"
+        placeholder="Weight in kgs"
+      />
+      <br /><br />
+
+      <input
+        type="button"
+        value="Reset"
+        id="resetBtn"
+        onclick="location.reload()"
+      />
+
+      <input
+        type="button"
+        value="Calculate"
+        id="calculateBtn"
+        onclick="bmiCalc()"
+      />
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+      let result = document.querySelector("#result");
+
+      function bmiCalc() {
+        let height1 = Number(document.querySelector("#height").value);
+        let weight1 = Number(document.querySelector("#weight").value);
+        
+        if (height1 <= 0) {
+          result.textContent = "Provide a valid height";
+        } else if (weight1 <= 0) {
+          alert("Enter your weight");
+        } else {
+          let result1 = (weight1 / ((height1 * height1) / 10000)).toFixed(2);
+          if (result1 < 18.5) {
+            result.textContent = "Your BMI is " + result1 + " - Under Weight";
+          } else if (result1 < 25) {
+            result.textContent = "Your BMI is " + result1 + " - Normal Weight";
+          } else {
+            result.textContent = "Your BMI is " + result1 + " - Over Weight";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
