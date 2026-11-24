@@ -1,0 +1,607 @@
+//"use strict";
+
+// Primitive Data Types
+
+//Numbers
+console.log("Number Types \n");
+let d0 = 23;
+console.log("Number without Decimal " + d0);
+let d1 = 22.5;
+console.log("Number with Decimal " + d1);
+let eL = 123e7;
+console.log("Number Extra large Exponent " + eL);
+let eS = 1230e-8;
+console.log("Number Extra small Exponent " + eS);
+let minIntP = 999999999999999;  // accurate upto 15 decimals
+console.log("Minimum Integer Precision " + minIntP);
+let maxIntP = 99999999999999999; // maximum decimal is 17
+console.log("Maximum Integer Precision " + maxIntP);
+let floatPre = 0.2 + 0.1;    //the float precision does not give the 100% accurate value due to js uses IEEE754 Decimal-precision floating-point 
+//(0.2*10 + 0.1*10)/10 to get the accurate value or floatPre.toFixed(2));
+
+console.log("Float Precision: " + floatPre);
+
+// The JavaScript interpreter works from left to right.
+// In JavaScript + is used for concatenation and addition. 
+
+let x1 = 10;
+let y1 = 100;
+console.log("Addition of 10 + 100 is " + (x1 + y1));
+console.log(x1 + "100");
+let z1 = "200";
+let res = x1 + y1 + z1;
+console.log("Result " + res); //110200 came because of res is a string
+
+console.log("\nNumeric String");
+let x2 = "100";
+let y2 = "10";
+console.log("100 + 10 is " + (x2 + y2));// js will not convert the sting to number while adding
+console.log("100 *10  is " + (x2 * y2));
+console.log("100 / 10 is " + (x2 / y2));
+console.log("100 - 10 is " + (x2 - y2));
+console.log("100 % 10 is " + (x2 % y2));
+
+console.log("Not a Number - NaN")
+let x3 = 10;
+let y3 = "Cat";
+console.log("10 / cat is " + (x3 / y3));
+console.log("NaN + 5 is " + (NaN + 5));
+console.log("Type of NaN is " + typeof NaN);
+console.log("-2 / 0 is " + (-2 / 0));
+console.log("2 / 0 is " + (2 / 0));
+
+console.log("Type of Infinity is " + typeof Infinity);
+
+console.log("Hexadecimal of 0xFF is " + (0xFF));
+
+let n1 = 500;
+let n2 = new Number(500);
+console.log(n1 == n2);
+console.log(n1 === n2);
+console.log(typeof n1 + "\n" + typeof n2);
+let n1Str = n1.toString();
+console.log("500 to String - " + typeof n1Str);
+console.log("valueOf() n1 is " + n1.valueOf()); //value of return number as a number
+let x4 = 9.3854;
+console.log("Exponential of " + x4 + " is " + x4.toExponential(2));
+
+let date1 = Number(new Date("2004-07-18"));
+console.log(date1);
+console.log("toFixed() is " + x4.toFixed(3));
+console.log("toPrecision() is " + x4.toPrecision());
+console.log("12345678901234567890 is isSafeInteger: " + Number.isSafeInteger(12345678901234567890));
+console.log("parseInt: " + Number.parseInt("10.362566"));
+console.log("parserFloat: " + Number.parseFloat("23.0056948"));
+console.log("isInteger " + Number.isInteger(23.985566));
+console.log("EPSILON: " + Number.EPSILON);
+console.log("MAX VALUE: " + Number.MAX_VALUE); 4
+console.log("MIN VALUE: " + Number.MIN_VALUE);
+console.log("+ve Infinity: " + Number.POSITIVE_INFINITY);
+console.log("-ve Infinity: " + Number.NEGATIVE_INFINITY);
+
+
+//String
+console.log("\nString\n")
+let name1 = "Maxwell";
+console.log("String: " + name1);
+console.log("Length of the string: " + name1.length);
+let str1 = `"This is the example for the Template Strings"`; //Template Strings allow both single and double quotes inside a string
+console.log("Template String: " + str1);
+let str2 = new String("Hello")
+console.log("String as Object in JS: " + str2 + "\ntypeOf Hello is " + typeof str2);
+let str3 = "Hello"
+console.log("typeOf Hello is " + typeof str3);
+console.log(str2 == str3);
+console.log(str2 === str3);
+let str4 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+console.log("Length of str4 is " + str4.length);
+console.log("At 17th position is " + str4.charAt(17));
+console.log("Code Point " + str4.codePointAt(25));//shows the ascii of an specific position
+console.log("at(): " + str4.at(6));
+console.log("Concatenation: " + str3.concat(" ", str4))
+let strARR = "Cat, Dog, Elephant";
+console.log("Slice: " + strARR.slice(5, 13));
+console.log("toLowerCase: " + str4.toLocaleLowerCase());
+let str5 = "Hello World \uD800";
+console.log("" + str5.toWellFormed());
+let str6 = "              I am Batman                  "; //removing whitespaces
+console.log("Trim: " + str6.trim());
+console.log("Trim at start: " + str6.trimStart());
+console.log("Trim at End: " + str6.trimEnd());
+let text1 = "5";
+console.log("padStart: " + text1.padStart(5, "x"));
+console.log("padEnd: " + text1.padEnd(5, "x"));
+console.log("Repeat '5' five times: " + text1.repeat(5));
+let text3 = "Please visit the Factory the init";
+console.log("Replace: " + text3.replace("Factory", "company"));
+console.log("Split: " + text3.split(" "));                   // search
+console.log("Search: " + text3.search("visit"));
+const t4 = text3.match(/it/g);
+console.log("Match: " + t4);
+console.log("includes: " + text3.includes("Please"));
+console.log("Starts with: " + text3.startsWith("please"));
+console.log("Ends with: " + text3.endsWith("ory", 24));
+console.log("indexOf: " + text3.indexOf("the"));
+console.log("firstIndexOf: " + text3.lastIndexOf("the"));
+
+
+//Array
+const arr1 = ["Car", "Bike", "Truck", "Cycle"];
+
+const arr2 = [];
+arr2[0] = "Bike";
+arr2[1] = "Cycle";
+
+for (let i = 0; i < arr1.length; i++)
+    console.log("Array 1 " + arr1[i])
+
+console.log("Sorting: " + arr1.sort());
+console.log("Length of an array is " + arr1.length);
+const app = arr1.push("Ship");
+console.log("After pushing the new element in an array: " + arr1);
+console.log("typeOf array is : " + typeof arr1);
+console.log("isArray: " + Array.isArray(arr1));
+console.log("Array Reverse: " + arr1.reverse());
+console.log("Pop Element in Array is " + arr1.pop());
+console.log(arr1);
+console.log("Shift Array: " + arr1.shift("Ship"));
+console.log(arr1);
+console.log("Unshift: " + arr1.unshift("Aeroplane"));
+console.log(arr1);
+const alphabet = ["Gmail", "Chrome", "YouTube", "Playstore"];
+const microsoft = ["Outlook", "Edge", "Teams", "Windows"];
+console.log("Merging Two Arrays: " + "[" + alphabet.concat(microsoft) + "]");
+const arr5 = [[1, 2], [3, 4], [5, 6]];
+console.log("Flat method: " + arr5.flat());
+
+//iterations
+console.log("For Loop");
+for (let i = 0; i < 10; i++)
+    console.log(i);
+
+console.log("\nWhile loop");
+var i = 1;
+while (i < 10) {
+    console.log(i + " x 5 = " + i * 5);
+    i++;
+}
+
+console.log("\n");
+
+let j1 = 0;
+do {
+    console.log("Do While iteration: " + j1);
+    j1++;
+} while (j1 < 10);
+
+
+const person = {
+    firstName: "John",
+    lastName: "Wick",        // it is typically used for iterating over object keys
+    age: "50",
+};
+console.log("\nPrinting the values using for.. in")
+for (let key in person) {                               // iterate over properties of an object
+    console.log(person[key]);
+}
+
+const cars = ["BMW", "Volvo", "Tesla", "BYD", "Ford Mustang"];
+for (let x of cars) {                                   // iterate over array like object
+    console.log("Cars Name: " + x);
+}
+
+
+const myIter = Iterator.from([1, 2, 3, 4, 5, 6, 7]);
+for (let x of myIter) {
+    console.log(x)
+}
+const remIter = myIter.drop(5)
+for (let a of remIter) {
+    console.log(a);
+}
+
+const myIterate = Iterator.from("\nusing the for each\n");
+myIterate.forEach(element => {
+    console.log(element);
+});
+
+const numbers = [1, 2, 4, 5];
+const a = numbers.map(n => n * n);
+console.log(a);
+console.log(typeof a);
+
+const Student1 = new Map();
+Student1.set(101, "Anand");
+Student1.set(102, "Anbu");
+Student1.set(103, "Siva");
+Student1.set(true, "Gautham");
+
+// to display 
+console.log(Student1);
+
+//retrieving data get()
+console.log("Retrieving Data: " + Student1.get(103));
+
+console.log("Retrieving Data: " + Student1.get(true));
+
+console.log("Checking Data: " + Student1.has(106));
+
+Student1.delete(101);
+
+console.log(Student1);
+
+console.log("Size of the Map: " + Student1.size);
+
+Student1.clear();
+
+console.log(Student1);
+
+const letters = new Set();
+letters.add("A");
+letters.add("B");
+letters.add("C");
+
+console.log(typeof letters);
+
+console.log(letters instanceof Set);
+
+// const stuDetails = new Map();
+
+// let stu = {
+//     name: "Logan"
+// };
+
+// WeakMap.set(user, "Student");
+
+// user = null;
+
+const st1 = {
+    name: "Gautham",
+    age: 22,
+    department: "MCA"
+};
+
+console.log(Object.keys(st1)); //keys
+
+console.log(Object.values(st1)); //values
+
+console.log(Object.entries(st1)); //entries
+
+// normally accessing array element
+console.log("Using Array")
+
+const std1 = ["Kavin", 21, "MBA"];
+
+const name3 = std1[0];
+
+const age = std1[1];
+
+const dept = std1[2];
+
+console.log(name3);
+console.log(age);
+console.log(dept);
+
+//using the deconstructing assignment
+
+const [daNname, daAge, daDept] = std1;
+console.log("\nUsing Destructuring Assignment")
+console.log(daNname);
+console.log(daAge);
+console.log(daDept);
+//date
+console.log("\nDate and Time")
+const date = new Date();
+//console.log(date.toLocaleTimeString());
+const day1 = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const month1 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+console.log("Today is " + day1[date.getDay()] + " " + month1[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear() + "\nTime " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+//console.log(date.toDateString());
+//console.log(date.toString());
+
+function fibo(n) {
+    if (n === 0)
+        return 0;
+
+    if (n === 1)
+        return 1;
+
+    return fibo(n - 1) + fibo(n - 2);
+}
+
+console.log("Fibonacci using recursion fibo(10) is " + fibo(10));
+
+const txt1 = {
+    firstName: "John",
+    lastName: "Wick",
+    age: "50"
+};
+
+// Convert object into JSON string
+const jsonData1 = JSON.stringify(txt1);
+
+console.log("\n using the JSON.srtingify: " + jsonData1);
+
+// Convert JSON string into JavaScript object
+const parseData = JSON.parse(jsonData1);
+
+console.log("\n using the JSON.parse: " + parseData);
+
+const nos = [10, 20, 30, 40, 50, 60, 50, 10];
+
+//const uniqueNos = new Set(nos);
+
+console.log(new Set(nos));
+
+
+let stacks = [];
+stacks.push(130);
+stacks.push(150);
+stacks.push(188);
+console.log("\nThe stack contains " + stacks);
+console.log("The Popped elemeny is " + stacks.pop(188));
+console.log("\nAfter Pop the stack contains " + stacks);
+console.log("Peek() element is " + stacks[stacks.length - 1]);
+
+// Rest parameter
+
+function restParam(name, age, ...marks) {
+    console.log("\nRest Parameters\nName: ", name);
+    console.log("Age: " + age);
+    console.log("Marks: " + marks);
+
+
+}
+
+restParam("Gautham", 22, 80, 70, 87, 90, 100);
+
+//Spread Parameters
+console.log("\nSpread Parameters")
+let nos1 = [20, 30, 60, 80, 70];
+console.log(...nos1);
+
+// closure 
+
+function outer() {
+    let count = 0;
+
+    function inner() {
+        count++;
+        console.log(count);
+    }
+
+    return inner;
+}
+
+const counter = outer();
+console.log("\nClosure")
+for (let i = 0; i < 10; i++)
+    counter();
+
+
+if (true) {
+    var intNew = 1;
+}
+
+console.log(intNew);
+
+// function sayHi(){
+//     console.log("Hello")
+// }
+
+//setTimeout(sayHi,5000);
+//setInterval(sayHi,5000);
+
+// decorator
+
+function decorator(func) {
+    return function () {
+        console.log("Hello");
+
+        greetings();
+
+        console.log("!");
+    }
+};
+
+function greetings() {
+    console.log("World");
+}
+let result1 = decorator(greetings)
+result1();
+console.log("\ncall()");
+let std3 = {
+    name: "Gautham"
+};
+
+let std4 = {
+    name: "Sam"
+};
+
+function intro(city) {
+    console.log(this.name + " from " + city);
+
+}
+
+intro.call(std3, "Salem");
+
+intro.call(std4, "Omalur");
+
+console.log("\napply()");
+let std5 = {
+    name: "Vijay"
+};
+
+let std6 = {
+    name: "Parthiban"
+};
+
+function greet1(city, age) {
+    console.log("\nName: " + this.name);
+    console.log("City: " + city);
+    console.log("Age: " + age);
+}
+
+greet1.apply(std5, ["Salem", 21]);
+greet1.apply(std6, ["Chennai", 22]);
+
+
+// arrow function with one parameter 
+const gret = (name) => {
+    console.log("\nHello, This is " + name + " and this an example for arrow function revisited " + name);
+}
+gret("Gautham");
+
+
+// arrow function with two parameter
+
+const add = (a, b) => {
+    return a + b;
+}
+
+console.log("Addition of 10 + 20 = " + add(10, 20));
+
+let names1 = {};
+
+Object.defineProperty(names1, "name", {
+    value: "Vignesh",
+    writable: 0,  //false
+    enumerable: 0
+});
+
+names1.age = 22;
+
+console.log(Object.keys(names1));
+
+names1.name = "John";
+
+console.log(names1.name);
+
+
+let mobileSpec = {
+    mobile: "Samsung",
+    ram: "16 GB",
+    cpu: "Snapdragon 88",
+
+    getSpec: function () {
+        console.log(this.cpu);
+    }
+};
+
+let mobileSpec1 = {
+    mobile: "Samsung",
+    ram: "16 GB",
+    cpu: "MediaTek",
+
+    getSpec: function () {
+        console.log(this.cpu);
+    }
+};
+
+mobileSpec.getSpec();
+
+mobileSpec1.getSpec();
+
+
+// inside object method
+const emp1 = {
+    name: "John",
+    salary: 50000,
+
+    displayDetails() {
+        console.log("\nthis keyword\ninside object method");
+        console.log(this.name);
+        console.log(this.salary);
+    }
+};
+
+emp1.displayDetails();
+
+//inside a normal function
+function display1(){
+    console.log(this);
+}
+
+display1();
+
+//getter and setter
+const personAge = {
+
+    ag: 30,
+
+    get age() {
+        return this.ag;
+    },
+
+    set age(value) {
+        if (value < 0) {
+            console.log("Age cannot be negative!");
+            return;
+        }
+
+        this.ag = value;
+    }
+};
+
+personAge.age = 25;
+
+console.log(personAge.ag);
+console.log(personAge.age);
+
+console.log(typeof Object.getOwnPropertyDescriptor);
+
+
+// setter method 
+const person2 = {
+    firstName1: "John",
+    lastName1: "Doe",
+    language: "NO",
+    set lang(value){
+        this.language = value;
+    }
+};
+
+person2.lang = "en";
+
+console.log(person2.language);
+
+//class 
+
+class studentClass{
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+
+    study(){
+        console.log(this.name + " is studying");
+    }
+}
+
+const stuCla1 = new studentClass("Gautham", 22);
+const stuCla2 = new studentClass("Sam", 22);
+
+console.log(stuCla1.name);
+console.log(stuCla2.age);
+
+stuCla1.study();
+stuCla2.study();
+
+//inheritance
+
+class Animal{
+    eat(){
+        console.log("Animal is eating");
+    }
+}
+
+class Dog extends Animal{
+    bark(){
+        console.log("Dog is barking");
+    }
+}
+
+
+const Sound = new Dog();
+Sound.bark();
+Sound.eat();
