@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events & UI Interactions</title>
+  </head>
+
+  <body>
+    <!-- Click Event -->
+    <button id="sj" value="Click here">0</button>
+
+    <!-- Inline Event -->
+    <button onclick="showMessage()">Show Message</button>
+
+    <!-- Page Load Event -->
+    <h2 id="msg">Welcome</h2>
+
+    <!-- Event Bubbling -->
+    <div id="parent">
+      Parent
+      <button id="child">Click Me</button>
+    </div>
+
+    <!-- Event Delegation -->
+    <ul id="myList">
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Orange</li>
+    </ul>
+
+    <!-- Custom Event -->
+    <button id="btnId">Dispatch Event - Trigger Event</button> <br />
+    <br />
+
+    <!-- Prevent Default Action -->
+    <a id="linkBtn" href="https://www.google.com">Google</a>
+    <br /><br />
+    <!-- UI Events -->
+    <input type="text" name="name" id="name" placeholder="Enter your Name" />
+    <p id="msg1"></p>
+
+    <!-- Mouse Events -->
+    <div
+      id="box"
+      style="width: 200px; height: 100px; background-color: magenta"
+    >
+      Move Mouse Here
+    </div>
+
+    <p id="mRes"></p>
+
+    <!-- Scroll Event -->
+    <p id="scrollRes"></p>
+    <div style="height: 1500px">Scroll to see the result</div>
+
+    <script>
+      // 1. Mouse Events - Detect when the mouse enters or leaves an element.
+
+      let box = document.getElementById("box");
+
+      box.addEventListener("mouseenter", function () {
+        document.getElementById("mRes").innerHTML = "Mouse Entered";
+      });
+
+      box.addEventListener("mouseleave", function () {
+        document.getElementById("mRes").innerHTML = "Mouse Left";
+      });
+
+      // 2. UI Events - Detect when an input field gains or loses focus.
+
+      let input1 = document.getElementById("name");
+
+      input1.addEventListener("focus", function () {
+        document.getElementById("msg1").innerHTML = "Input field is focused";
+      });
+
+      input1.addEventListener("blur", function () {
+        document.getElementById("msg1").innerHTML = "Input field lost focus";
+      });
+
+      // 3. Custom Events - Create and manually trigger custom events.
+
+      let event1 = new Event("Welcome");
+
+      document.addEventListener("Welcome", function () {
+        alert("Custom Event Triggered!");
+        // console.log("Custom Event Triggered");
+      });
+
+      document.getElementById("btnId").addEventListener("click", function () {
+        document.dispatchEvent(event1);
+      });
+
+      // 4. Browser Default Actions - Prevent the browser's default action using preventDefault().
+
+      document
+        .getElementById("linkBtn")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+
+          // alert("Navigation Restricted using the Prevent Default");
+          console.log("Navigation Restricted using the Prevent Default");
+        });
+
+      // 5. Event Delegation - Handle events of multiple child elements using one parent event listener.
+
+      document
+        .getElementById("myList")
+        .addEventListener("click", function (event) {
+          if (event.target.tagName == "LI") {
+            alert(event.target.innerHTML);
+          }
+        });
+
+      // 6. Event Bubbling - Demonstrate how events propagate from child elements to parent elements.
+
+      document.getElementById("parent").addEventListener("click", function () {
+        console.log("Parent Clicked");
+      });
+
+      document.getElementById("child").addEventListener("click", function () {
+        console.log("Child Clicked");
+      });
+
+      // 7. Click Event - Execute a function when the button is clicked.
+
+      let btn = document.getElementById("sj");
+
+      btn.addEventListener("click", (event) => {
+        btn.innerHTML = "Click Again";
+      });
+
+      // 8. Mouseover and Mouseout - Detect when the mouse moves over or away from an element.
+
+      // btn.addEventListener("mouseover", (event) => {
+      //     btn.textContent = "Mouse Hover";
+      // });
+
+      // btn.addEventListener("mouseout", (event) => {
+      //     btn.textContent = "Mouse Out";
+      // });
+
+      // 9. Page Load Event - Execute code when the entire page is loaded.
+
+      window.addEventListener("load", function () {
+        document.getElementById("msg").innerHTML = "Page Loaded Successfully";
+      });
+
+      // 10. Keyboard Events - Detect keyboard key releases using keyup.
+
+      document.addEventListener("keydown", (event) => {
+        console.log(event.key);
+
+        switch (event.key) {
+          case "ArrowUp":
+            btn.textContent = Number(btn.textContent) + 1;
+            break;
+
+          case "ArrowDown":
+            btn.textContent = Number(btn.textContent) - 1;
+            break;
+        }
+      });
+
+      // 11. Scroll Event - Detect page scrolling and display the scroll position.
+
+      window.addEventListener("scroll", function () {
+        document.getElementById("scrollRes").innerHTML =
+          "Scroll Position: " + window.scrollY;
+      });
+
+      // 12. Inline Event Function - Execute a JavaScript function using an HTML onclick event.
+
+      function showMessage() {
+        alert("Welcome");
+        console.log("Welcome");
+      }
+    </script>
+  </body>
+</html>
