@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: aliceblue;
+      padding: 30px;
+    }
+
+    form {
+      background-color: rgba(232, 222, 222, 0.276);
+      width: 400px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid gray;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border: 1px solid blue;
+    }
+
+    button {
+      padding: 9px 15px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: steelblue;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: white;
+      color: blue;
+      border-radius: 5px;
+      border: solid;
+    }
+
+    #error {
+      color: red;
+      text-align: center;
+    }
+
+    #message {
+      color: green;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #preview {
+      background-color: aliceblue;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px auto;
+      width: 400px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <form id="myForm">
+    <label for="name">Name: </label>
+    <input type="text" name="name" id="name" placeholder="Enter your Name" autofocus />
+    <br /><br />
+    <label for="age">Age: </label>
+    <input type="number" name="age" id="age" placeholder="Enter your Age" />
+    <br />
+    <br />
+    <label for="email">E-Mail: </label>
+    <input type="email" name="email" id="email" placeholder="Enter your E-Mail ID" /><br /><br />
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password" placeholder="Enter your Password" /><br /><br />
+    <label for="confirmPassword">Confirm Password: </label>
+    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Re-type your Password" />
+    <br />
+    <br />
+    <label for="gender">Gender: </label>
+    <input type="radio" name="gender" id="male" value="male" />Male
+    <input type="radio" name="gender" id="female" value="female" />Female
+    <br /><br />
+    <label for="department">Department: </label>
+    <select name="department" id="department">
+      <option value="sel" selected>Select Departent</option>
+      <option value="B.E">B.E</option>
+      <option value="B.Sc">B.Sc</option>
+      <option value="M.E">M.E</option>
+      <option value="MCA">MCA</option>
+      <option value="MBA">MBA</option>
+    </select>
+    <br />
+    <br />
+    <label for="skills">Skills: </label>
+    <input type="checkbox" name="skills" id="html" value="HTML" />HTML
+    <input type="checkbox" name="skills" id="css" value="CSS" />CSS
+    <input type="checkbox" name="skills" id="js" value="JavaScript" />JavaScript <br />
+    <br />
+    <label for="address">Address:</label> <br />
+    <textarea name="address" id="address" cols="25" rows="5" placeholder="Enter your Address"></textarea>
+    <br />
+    <br />
+    <button type="button" onclick="showForm()">Show Preview</button>
+    <button type="button" onclick="submitForm()">Register</button>
+    <button type="button" onclick="resetForm()">Reset</button>
+  </form>
+  <p id="message"></p>
+  <p id="error"></p>
+  <p id="preview"></p>
+
+  <script>
+    const form = document.getElementById("myForm");
+    const name = document.getElementById("name");
+    const age = document.getElementById("age");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const department = document.getElementById("department");
+    const address = document.getElementById("address");
+    const preview = document.getElementById("preview");
+    const error = document.getElementById("error");
+    const message = document.getElementById("message");
+
+    // document.addEventListener("copy", function(event){
+    //   event.preventDefault();
+    // });
+
+    //  document.addEventListener("cut", function(event){
+    //   event.preventDefault();
+    // });
+
+    //  document.addEventListener("paste", function(event){
+    //   event.preventDefault();
+    // });
+
+    document.addEventListener("cut", function () {
+      let clipBoard = window.getSelection().toString();
+      console.log(clipBoard + " was cut");
+    });
+
+    document.addEventListener("copy", function () {
+      let clipBoard = window.getSelection().toString();
+      console.log(clipBoard + " was copied");
+    });
+
+    document.addEventListener("paste", function () {
+      let clipBoard = event.clipboardData.getData("text");
+      console.log(clipBoard + " was pasted");
+    });
+
+
+    function validateForm() {
+      let errors = [];
+
+      error.textContent = "";
+      message.textContent = "";
+
+      if (name.value.trim() === "") {
+        errors.push("Enter your Name");
+      } else {
+        let valid = true;
+        for (let i = 0; i < name.value.length; i++) {
+          let ch = name.value.charCodeAt(i);
+
+          if (
+            !((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122) || ch === 32)
+          ) {
+            valid = false;
+            break;
+          }
+        }
+        if (!valid) {
+          errors.push("Name should contain only alphabets");
+        }
+      }
+
+      if (age.value.trim() === "") {
+        errors.push("Enter your age");
+      } else if (Number(age.value) < 5 || Number(age.value) > 100) {
+        errors.push("Age must be between 5 and 100");
+      }
+
+      if (email.value.trim() === "") {
+        errors.push("Enter your email");
+      } else if (!email.validity.valid) {
+        errors.push("Enter a vaild email address");
+      }
+
+      if (password.value.length < 6) {
+        errors.push("Password must contain atleast 6 characters");
+      }
+
+      if (confirmPassword.value === "") {
+        errors.push("Enter your Password");
+      } else if (password.value !== confirmPassword.value) {
+        errors.push("Password do not match");
+      }
+
+      let gender = document.querySelector('input[name="gender"]:checked');
+
+      if (!gender) {
+        errors.push("Select your Gender");
+      }
+
+      if (department.value === "sel") {
+        errors.push("Select your Department");
+      }
+
+      let skills = document.querySelectorAll('input[name="skills"]:checked');
+
+      if (skills.length === 0) {
+        errors.push("Select your skills");
+      }
+
+      if (address.value.trim() === "") {
+        errors.push("Enter your address");
+      }
+
+      if (errors.length > 0) {
+        error.innerHTML = "<ul>";
+
+        for (let i = 0; i < errors.length; i++) {
+          error.innerHTML += "<li>" + errors[i] + "<li>";
+        }
+
+        error.innerHTML += "</ul>";
+
+        return false;
+      }
+      return true;
+    }
+
+    function showForm() {
+      if (!validateForm()) {
+        preview.innerHTML = "";
+        return;
+      }
+
+      let gender = document.querySelector('input[name="gender"]:checked').value;
+
+      let skills = document.querySelectorAll('input[name="skills"]:checked');
+
+      let selectedSkills = [];
+
+      skills.forEach(function (item) {
+        selectedSkills.push(item.value);
+      });
+
+      preview.innerHTML =
+        "<h3>Registration Form</h3>" +
+        "<p>Name: " + name.value.toUpperCase() + "</p>" +
+        "<p>Age: " + age.value + "</p>" +
+        "<p>Email: " + email.value + "</p>" +
+        "<p>Gender: " + gender + "</p>" +
+        "<p>Department: " + department.value + "</p>" +
+        "<p>Skills: " + selectedSkills.join(", ") + "</p>" +
+        "<p>Address: " + address.value + "</p>";
+    }
+
+    function submitForm() {
+      if (validateForm()) {
+        message.textContent = "Resgistration Successful";
+        error.innerHTML = "";
+        preview.innerHTML = "";
+      }
+      else {
+        message.textContent = "";
+      }
+    }
+    function resetForm() {
+      form.reset();
+
+      error.innerHTML = "";
+      message.innerHTML = "";
+      preview.innerHTML = "";
+    }
+
+    const inputs = document.querySelectorAll("input, textarea, select");
+
+    inputs.forEach(function (item) {
+      item.addEventListener("focus", function () {
+        item.style.backgroundColor = "lightgreen";
+      });
+      item.addEventListener("blur", function () {
+        item.style.backgroundColor = "lightblue";
+      });
+    })
+
+    document.addEventListener("DOMContentLoaded", function () {
+      alert("HTML is ready");
+    });
+
+
+    window.addEventListener("load", function () {
+      console.log("Page fully loaded");
+    });
+
+    window.addEventListener("unload", function () {
+      console.log("Leaving Page");
+    });
+
+    console.log(document.readyState);
+  </script>
+</body>
+
+</html>

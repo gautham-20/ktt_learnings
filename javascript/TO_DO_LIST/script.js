@@ -39,5 +39,3 @@ list.addEventListener("click", (event) => {
         li.classList.toggle("completed");
     }
 });
-
-
